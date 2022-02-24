@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Main from './Main';
+import Search from './components/Search';
+import Boxuser from './components/Boxuser';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Main></Main>
-      {/* <Text>Open up App.js to start working on your app!</Text> */}
-      <StatusBar style="auto" />
+      <Search></Search>
+        <Boxuser name='Vu'></Boxuser>
     </View>
   );
 }

@@ -4,7 +4,9 @@ import { Text, TextInput, View, StyleSheet } from "react-native";
 export default Search = () => {
     const [text, onChangeText] = React.useState("Useless Text");
     return (
-        <TextInput placeholder='please type here' onChangeText={text => onChangeText(text)} value={text} style={styles.input} />
+        <View style={styles.search}>
+            <TextInput placeholder='please type here' onChangeText={text => onChangeText(text)} value={text} style={styles.input} />
+        </View>
     );
 };
 const styles = StyleSheet.create({
@@ -14,10 +16,10 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        borderColor: '#4665',
+        borderRadius: 5
     },
-    view: {
-        flex: 1,
-        flexDirection: "column",
-        justifyContent: "space-between",
+    search: {
+        paddingTop: 30
     }
 });
