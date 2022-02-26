@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     search: {
-        paddingTop: 30
+        paddingTop: 5,
     }
 });
