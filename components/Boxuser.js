@@ -11,7 +11,7 @@ export default Boxuser = (props) => {
         <ScrollView style={styles.scrollView}>
             <View style={styles.parentBox}>
                 {User.map(item => (
-                    <View style={styles.childrenBox}>
+                    <View style={styles.childrenBox} key={item.index}>
                         <TouchableOpacity onPress={()=>{ alert("Image Clicked!!!")}}>
                             <ImageBackground source={{ uri: item.avatar }} resizeMode="cover" style={styles.image}>
                                 <Text style={styles.inputText}>{item.name}</Text>
@@ -24,6 +24,8 @@ export default Boxuser = (props) => {
 
     )
 }
+
+const widthScreen = (Dimensions.get('window').width) / 3;
 
 const styles = StyleSheet.create({
     parentBox: {
@@ -42,12 +44,13 @@ const styles = StyleSheet.create({
         borderColor: 'red',
         borderWidth: 1,
         height: 100,
-        minWidth: 100,
-        flex: 1,
-        // flexDirection: "column",
+        minWidth: widthScreen,
+        // flex: 1,
+        flexDirection: "column",
         textAlign: 'center',
-        margin: 5,
+        // margin: 5,
         borderRadius: 5,
+        padding: 5
     },
     inputText: {
         textAlign: 'center',

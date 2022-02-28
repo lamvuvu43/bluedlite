@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, TextInput, View, StyleSheet } from "react-native";
 
-export default Search = () => {
+export default Search = (props) => {
     const [text, onChangeText] = React.useState("Useless Text");
     return (
         <View style={styles.search}>
-            <TextInput placeholder='please type here' onChangeText={text => onChangeText(text)} value={text} style={styles.input} />
+            <TextInput placeholder='please type here' onChangeText={text => onChangeText(text)} value={props.name} style={styles.input} />
         </View>
     );
 };
