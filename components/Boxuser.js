@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet, Image, ImageBackground, ScrollView, Dimensions, TouchableOpacity } from "react-native";
 import user from "../data/user";
+
 const screenHeight = Dimensions.get('window').height
 
 export default Boxuser = (props) => {
+    // const [name, setName] = useState('hello name')
+    // setName('quan') name = 'quan'
+
     const name = props.name;
     const User = user;
+    const alertTest = (message = '')=>{
+        // alert("Image Clicked!!!" + message) 
+        props.navigation.navigate('UserInfo')
+    }
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.parentBox}>
                 {User.map(item => (
                     <View style={styles.childrenBox} key={item.index}>
-                        <TouchableOpacity onPress={() => { alert("Image Clicked!!!") }}>
+                        <TouchableOpacity onPress={() => alertTest()}>
                             <ImageBackground source={{ uri: item.avatar }} resizeMode="cover" style={styles.image}>
                                 <Text style={styles.inputText}>{item.name}</Text>
                             </ImageBackground>

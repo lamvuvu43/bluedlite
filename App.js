@@ -9,12 +9,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const searchName  = 'sdg';
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Carousel></Carousel>
       <Search name={searchName}></Search>
-      <Boxuser ></Boxuser>
+      <Boxuser navigation={navigation}></Boxuser>
     </View>
   );
 }
