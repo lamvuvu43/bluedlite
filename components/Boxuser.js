@@ -1,17 +1,19 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, ImageBackground, ScrollView, Dimensions, TouchableOpacity } from "react-native";
-import user from "../data/user";
+import user from "../data/User";
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+
 const screenHeight = Dimensions.get('window').height
 
-export default Boxuser = (props) => {
-    const name = props.name;
-    const User = user;
+export default Boxuser = ({navigation}) => {
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.parentBox}>
-                {User.map(item => (
+                {user.map(item => (
                     <View style={styles.childrenBox} key={item.index}>
-                        <TouchableOpacity onPress={() => { alert("Image Clicked!!!") }}>
+                        <TouchableOpacity onPress={() => { console.log(navigation)}}>
                             <ImageBackground source={{ uri: item.avatar }} resizeMode="cover" style={styles.image}>
                                 <Text style={styles.inputText}>{item.name}</Text>
                             </ImageBackground>
@@ -23,7 +25,7 @@ export default Boxuser = (props) => {
     )
 }
 
-const widthScreen = (Dimensions.get('window').width) / 3;
+const widthScreen = (Dimensions.get('window').width) / 4;
 
 const styles = StyleSheet.create({
     parentBox: {

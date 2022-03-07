@@ -3,9 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import Search from './components/Search';
 import Boxuser from './components/Boxuser';
 import Carousel from './components/Carousel';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation  } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import UserInfo from './screens/UserInfo';
+import ChatList from './screens/ChatHistory';
 
 const searchName  = 'sdg';
 
@@ -14,26 +16,24 @@ function HomeScreen() {
     <View style={styles.container}>
       <Carousel></Carousel>
       <Search name={searchName}></Search>
-      <Boxuser ></Boxuser>
+      <Boxuser></Boxuser>
     </View>
   );
 }
 
-function Chat() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Chat list</Text>
-    </View>
-  )
-}
+// function Chat() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Chat list</Text>
+//     </View>
+//   )
+// }
 
-function UserInfo({UserInfo}) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text> User Info</Text>
-    </View>
-  )
-}
+// function UserInfo({UserInfo}) {
+//   return (
+//     <UserInfo></UserInfo>
+//   )
+// }
 
 function Settings() {
   return (
@@ -77,7 +77,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Chat" component={Chat} />
+        <Tab.Screen name="Chat" component={ChatList} navigation={NavigationContainer.navigation}/>
         <Tab.Screen name="UserInfo" component={UserInfo} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
