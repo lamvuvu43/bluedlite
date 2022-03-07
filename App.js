@@ -8,15 +8,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import UserInfo from './screens/UserInfo';
 import ChatList from './screens/ChatHistory';
+import Chat from './screens/Chat';
 
 const searchName  = 'sdg';
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Carousel></Carousel>
       <Search name={searchName}></Search>
-      <Boxuser></Boxuser>
+      <Boxuser navigation={navigation}></Boxuser>
     </View>
   );
 }
@@ -44,7 +45,6 @@ function Settings() {
 }
 
 const Tab = createBottomTabNavigator();
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -77,7 +77,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Chat" component={ChatList} navigation={NavigationContainer.navigation}/>
+        <Tab.Screen name="Chat" component={ChatList} />
         <Tab.Screen name="UserInfo" component={UserInfo} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>

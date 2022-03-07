@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet, Image, ImageBackground, ScrollView, Dimensions, TouchableOpacity } from "react-native";
-import user from "../data/User";
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import User from "../data/User";
 
 const screenHeight = Dimensions.get('window').height
 
-export default Boxuser = ({navigation}) => {
+export default Boxuser = (props) => {
+    // const [name, setName] = useState('hello name')
+    // setName('quan') name = 'quan'
+
+    const alertTest = (message = '')=>{
+        // alert("Image Clicked!!!" + message) 
+        props.navigation.navigate('UserInfo')
+    }
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.parentBox}>
-                {user.map(item => (
+                {User.map(item => (
                     <View style={styles.childrenBox} key={item.index}>
-                        <TouchableOpacity onPress={() => { console.log(navigation)}}>
+                        <TouchableOpacity onPress={() => alertTest()}>
                             <ImageBackground source={{ uri: item.avatar }} resizeMode="cover" style={styles.image}>
                                 <Text style={styles.inputText}>{item.name}</Text>
                             </ImageBackground>
