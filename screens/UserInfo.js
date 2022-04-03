@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, ImageBackground, ScrollView, Dimensions, TouchableOpacity } from "react-native";
 import UserInfoDetail from "../data/UserInfo";
+import BottomMenu from "./BottomMenu";
 const screenHeight = Dimensions.get('window').height
 
 const alertTest = (message = '') => {
@@ -8,20 +9,23 @@ const alertTest = (message = '') => {
 }
 
 
-export default UserInfo = (props) => {
+export default UserInfo = ({navigation}) => {
     return (
-        <ScrollView style={styles.scrollView}>
-            <View style={styles.parentBox}>
-               <View style={{ flex:1, flexDirection: 'row', flexWrap:"wrap"}}>
-                   <Image style={styles.image} source={{ uri: UserInfoDetail.image }}></Image>
-                   <Text style={{ textAlignVertical: "center",paddingLeft:20, fontSize:23 }}>{ UserInfoDetail.name}</Text>
+        <View style={{ flex:1 }}>
+            <ScrollView style={styles.scrollView}>
+                <View style={styles.parentBox}>
+                    <View style={{ flex: 1, flexDirection: 'row', flexWrap: "wrap" }}>
+                        <Image style={styles.image} source={{ uri: UserInfoDetail.image }}></Image>
+                        <Text style={{ textAlignVertical: "center", paddingLeft: 20, fontSize: 23 }}>{UserInfoDetail.name}</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', fontSize: 20, paddingTop: 20 }}>
+                        <Text style={{ fontSize: 20 }}>Ngày sinh: </Text>
+                        <Text style={{ fontSize: 20 }}>{UserInfoDetail.date_of_birth}</Text>
+                    </View>
                 </View>
-                <View style={{flexDirection: 'row', flexWrap: 'wrap', fontSize: 20, paddingTop:20 }}>
-                    <Text style={{ fontSize: 20}}>Ngày sinh: </Text>
-                    <Text style={{ fontSize: 20}}>{UserInfoDetail.date_of_birth}</Text>
-                </View>
-            </View>
-        </ScrollView>
+            </ScrollView>
+            <BottomMenu navigation={navigation}></BottomMenu>
+        </View>
     )
 }
 
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 100,
-        height:100,
-        borderRadius:50,
+        height: 100,
+        borderRadius: 50,
     }
 })
