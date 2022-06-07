@@ -22,13 +22,17 @@ const Item = ({ item, navigation }) => {
 
 const ChatList = ({ navigation }) => {
     return (
-        <View style={{flex:1}}>
-            <ScrollView>
-                {ChatHistoryData.map(item => (
-                    <Item item={item} navigation={navigation} key={item.index} />
-                ))}
-            </ScrollView>
-            <BottomMenu navigation={navigation}></BottomMenu>
+        <View style={{ flex: 1, flexDirection: 'column' }}>
+            <View style={{ flex: 11 / 2 }}>
+                <ScrollView>
+                    {ChatHistoryData.map(item => (
+                        <Item item={item} navigation={navigation} key={item.index} />
+                    ))}
+                </ScrollView>
+            </View>
+            <View style={{ flex: 1/2, flexDirection:'row' }}>
+                <BottomMenu navigation={navigation}></BottomMenu>
+            </View>
         </View>
     )
 }

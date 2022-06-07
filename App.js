@@ -19,17 +19,29 @@ const searchName = 'sdg';
 const widthScreen = (Dimensions.get('window').width) / 4;
 function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigation.navigate('ChatDetail', { name: 'Detail' })
-        }
-      />
-      <Carousel></Carousel>
-      <Search name={searchName}></Search>
-      <Boxuser navigation={navigation}></Boxuser>
-      <BottomMenu navigation={navigation}></BottomMenu>
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <View style={{ flex: 1 }}>
+        <Button
+          title="Go to Jane's profile"
+          onPress={() =>
+            navigation.navigate('ChatDetail', { name: 'Detail' })
+          }
+        />
+          <View style={{ flex: 1 }}>
+        <Carousel></Carousel>
+      </View>
+      
+      </View>
+      <View style={{ flex: 1/2,backgroundColor:'gray' }}>
+        <Search name={searchName}></Search>
+      </View>
+     
+      <View style={{ flex: 4 }}>
+        <Boxuser navigation={navigation}></Boxuser>
+      </View>
+      <View style={{ flex:1/2 }}>
+        <BottomMenu navigation={navigation}></BottomMenu>
+      </View>
     </View>
   );
 }
@@ -73,11 +85,11 @@ function HomeScreen({ navigation }) {
 
 function Settings({ navigation }) {
   return (
-    <View style={{ flex: 1, flexDirection: 'column' }}>
-      <View style={{ flex:2,justifyContent: 'center', alignItems: 'center' }}>
+    <View>
+      <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
         <Text> Settings </Text>
       </View>
-      <BottomMenu navigation={navigation}></BottomMenu>
+      <BottomMenu navigation={navigation} style={{ flexDirection: 'row' }}></BottomMenu>
     </View>
   )
 }
@@ -115,9 +127,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: "row",
     backgroundColor: '#fff',
-    flexDirection: "column"
+    flex: 1
   },
   menu_bottom_text: {
     borderRadius: 0,

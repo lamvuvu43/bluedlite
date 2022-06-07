@@ -11,8 +11,8 @@ export default Carousel = () => {
 };
 const styles = StyleSheet.create({
     carousel: {
-        paddingTop:50,
-        flex: 1/2,
+        // paddingTop:50,
+        // flex: 1/2,
         borderWidth:1,
     },
     iamges: {

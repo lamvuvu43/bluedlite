@@ -11,7 +11,8 @@ const alertTest = (message = '') => {
 
 export default UserInfo = ({navigation}) => {
     return (
-        <View style={{ flex:1 }}>
+        <View style={{ flex:1,flexDirection:'column' }}>
+            <View style={{ flex: 11/2 }}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.parentBox}>
                     <View style={{ flex: 1, flexDirection: 'row', flexWrap: "wrap" }}>
@@ -24,7 +25,10 @@ export default UserInfo = ({navigation}) => {
                     </View>
                 </View>
             </ScrollView>
+            </View>
+            <View style={{ flex:1/2 }}>
             <BottomMenu navigation={navigation}></BottomMenu>
+            </View>
         </View>
     )
 }
